@@ -1,0 +1,41 @@
+@import "../../variables.scss";
+
+.cart-widget {
+  position: relative;
+  display: inline-block;
+  color: $secondary-color;
+  cursor: pointer;
+  margin-right: 30px;
+  background-color: $primary-color;
+  color: $secondary-color;
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+.cart-icon{
+    width: 30px;
+    height: 30px;
+  }
+
+  &:hover {
+    color: $accent-color;
+  }
+
+  &:active {
+    color: $primary-color;
+}
+
+  .cart-count {
+    position: absolute;
+    bottom: -2px;
+    background-color: $accent-color;
+    border-radius: 50%;
+    color: $primary-color;
+    padding: 2px 1px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    min-width: 18px;
+    text-align: center;
+  }
+}
