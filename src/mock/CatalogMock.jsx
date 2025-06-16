@@ -109,9 +109,9 @@ const products = [
     }
    
 ]
-let error= false;
 
 export const getProducts = () => {
+    let error= false;
     return new Promise((resolve,reject) => {
         setTimeout(() => {
             if (error) {
