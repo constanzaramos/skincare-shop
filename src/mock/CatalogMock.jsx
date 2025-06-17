@@ -6,7 +6,7 @@ const products = [
         stock: 50,
         price: 12.000,
         category: "Cuerpo",
-        img: "public/body-milk.jpg",
+        img: "/body-milk.jpg",
     },
     {
         id:"2",
@@ -15,7 +15,7 @@ const products = [
         stock: 30,
         price: 7.200,
         category: "Cabello",
-        img: "public/conditioner-green.jpg",
+        img: "/conditioner-green.jpg",
     },
     {
         id:"3",
@@ -24,7 +24,7 @@ const products = [
         stock: 20,
         price: 3.800,
         category: "Cuerpo",
-        img: "public/cream-soap.jpg",   
+        img: "/cream-soap.jpg",   
     },
     {
         id:"4",
@@ -33,7 +33,7 @@ const products = [
         stock: 25,
         price: 5.750,
         category: "Cabello",
-        img: "public/curl-cream.jpg",
+        img: "/curl-cream.jpg",
     },
     {
         id:"5",
@@ -42,7 +42,7 @@ const products = [
         stock: 40,
         price: 19.320,
         category: "Rostro",
-        img: "public/eye-conteour-serum.jpg",
+        img: "/eye-conteour-serum.jpg",
     },
     {
         id:"6",
@@ -51,7 +51,7 @@ const products = [
         stock: 15,
         price: 9.690,
         category: "Cuerpo",
-        img: "public/forest-body-balm.jpg",
+        img: "/forest-body-balm.jpg",
     },
     {
         id:"7",
@@ -60,7 +60,7 @@ const products = [
         stock: 35,
         price: 6.590,
         category: "Cabello",
-        img: "public/hair-mask.jpg",
+        img: "/hair-mask.jpg",
     },
     {
         id:"8",
@@ -69,7 +69,7 @@ const products = [
         stock: 10,
         price: 8.250,
         category: "Ofertas",
-        img: "public/hand-lotion.jpg",
+        img: "/hand-lotion.jpg",
     },
     {
         id:"9",
@@ -78,7 +78,7 @@ const products = [
         stock: 25,
         price: 4.500,
         category: "Cabello",
-        img: "public/hydrating-shampoo.jpg",
+        img: "/hydrating-shampoo.jpg",
     },
     {
         id:"10",
@@ -87,7 +87,7 @@ const products = [
         stock: 20,
         price: 11.200,
         category: "Cuerpo",
-        img: "public/lavender-hand-wash.jpg",
+        img: "/lavender-hand-wash.jpg",
     },
     {
         id:"11",
@@ -96,7 +96,7 @@ const products = [
         stock: 30,
         price: 15.500,
         category: "Ofertas",
-        img: "public/lip-scrub.jpg",
+        img: "/lip-scrub.jpg",
     },
     {
         id:"12",
@@ -105,7 +105,7 @@ const products = [
         stock: 18,
         price: 10.000,
         category: "Ofertas",
-        img: "public/niacinamide-serum.jpg",
+        img: "/niacinamide-serum.jpg",
     }
    
 ]
