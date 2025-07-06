@@ -2,16 +2,19 @@ import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import banner from "./assets/banner.png";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
+    const location = useLocation();
   return (
     <>
       <NavBar />
-      <section className="banner">
-        <img src={banner} alt="banner image" />
-      </section>
+        {location.pathname === "/" && (
+        <section className="banner">
+          <img src={banner} alt="banner image" />
+        </section>
+      )}
       <Routes>
         <Route
           path="/"
