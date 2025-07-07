@@ -9,7 +9,7 @@ const Item = ({ product }) => {
       <img src={img} alt={name} />
       <div className="product-info">
         <h3>{name}</h3>
-        <p className="price">Precio: ${price.toFixed(3)}</p>
+        <p className="price">Precio: ${price.toLocaleString("es-CL")}</p>
       </div>
       <Link to={`/producto/${id}`}>
         <button className="btn-ver-mas">Ver más</button>

@@ -15,7 +15,7 @@ const ItemDetail = ({ product }) => {
       <div className="item-detail__info">
         <h2>{name}</h2>
         <p>{description}</p>
-        <p className="price">Precio: ${price.toFixed(3)}</p>
+        <p className="price">Precio: ${price.toLocaleString("es-CL")}</p>
         <p className="stock">Stock disponible: {stock}</p>
         <ItemCount stock={stock} onAdd={handleAdd} />
 
