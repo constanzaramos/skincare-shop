@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./itemCount.scss";
 
-const ItemCount = ({ initial = 1, stock, onAdd }) => {
+const ItemCount = ({ initial = 1, stock, onAdd, setSelectedQuantity }) => {
   const [count, setCount] = useState(initial);
+
+  useEffect(() => {
+    setSelectedQuantity(count);
+  }, [count, setSelectedQuantity]);
 
   const increase = () => {
     if (count < stock) setCount(count + 1);
@@ -12,10 +16,6 @@ const ItemCount = ({ initial = 1, stock, onAdd }) => {
     if (count > 1) setCount(count - 1);
   };
 
-  const handleAddToCart = () => {
-    onAdd(count);
-  };
-
   return (
     <div className="item-count">
       <div className="counter-controls">
@@ -23,8 +23,6 @@ const ItemCount = ({ initial = 1, stock, onAdd }) => {
         <span>{count}</span>
         <button onClick={increase}>+</button>
       </div>
-      <button className="btn-confirm" onClick={handleAddToCart}>
-      </button>
     </div>
   );
 };

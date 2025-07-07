@@ -2,19 +2,23 @@ import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import banner from "./assets/banner.png";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
+import { CartProvider } from "./context/CartContext";
+import CartContainer from "./components/CartContainer/CartContainer";
 
-function App() {
-    const location = useLocation();
+function AppContent() {
+  const location = useLocation();
   return (
     <>
       <NavBar />
-        {location.pathname === "/" && (
+      {location.pathname === "/" && (
         <section className="banner">
           <img src={banner} alt="banner image" />
         </section>
       )}
+
       <Routes>
         <Route
           path="/"
@@ -22,9 +26,19 @@ function App() {
         />
         <Route path="/categoria/:categoriaId" element={<ItemListContainer />} />
         <Route path="/producto/:id" element={<ItemDetailContainer />} />
-        <Route path="*" element={<h2>404 - Página no encontrada</h2>} />
+        <Route path="/cart" element={<CartContainer />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>
+  );
+}
+function App() {
+  return (
+    <CartProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
