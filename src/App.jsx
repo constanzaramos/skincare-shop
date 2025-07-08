@@ -7,6 +7,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import { CartProvider } from "./context/CartContext";
 import CartContainer from "./components/CartContainer/CartContainer";
+import Checkout from "./components/Checkout/Checkout";
 
 function AppContent() {
   const location = useLocation();
@@ -27,6 +28,7 @@ function AppContent() {
         <Route path="/categoria/:categoriaId" element={<ItemListContainer />} />
         <Route path="/producto/:id" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<CartContainer />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>

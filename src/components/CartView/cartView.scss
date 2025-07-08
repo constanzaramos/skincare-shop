@@ -1,0 +1,109 @@
+@import "../../variables.scss";
+
+.cart-view {
+  background-color: $background-color;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+
+  h2 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+    th, td {
+      padding: 0.75rem;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: $primary-color;
+      color: #fff;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    img {
+      max-width: 50px;
+      border-radius: 4px;
+    }
+
+    input[type="number"] {
+      width: 60px;
+      padding: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: $accent-color;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+
+      &:hover {
+        background-color: darken($accent-color, 10%);
+      }
+    }
+  }
+
+  .total-section {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+    button {
+      background-color: $primary-color;
+      color: #fff;
+      margin-left: 1rem;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  .empty-cart {
+    text-align: center;
+    padding: 3rem;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: $primary-color;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      text-decoration: none;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}
