@@ -14,11 +14,12 @@ MyRitual es un ecommerce de cosmética natural y cuidado personal.
 
 ## 🚀 **Deploy en Vercel**
 
-🔗 [Ver sitio en Vercel](https://skincare-shop.vercel.app)
+🔗 [Ver sitio en Vercel](https://skincare-shop-6ops7pv38-constanzas-projects-c67b7574.vercel.app/)
 
 ---
 ### 🎥 **GIF de funcionamiento**
-![Demo](./public/gif.gif)
+
+<img src="./public/gif.gif" alt="Demo Skincare Shop" width="400"/>
 
 ---
 ## 💻 **Instrucciones de instalación**
