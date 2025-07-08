@@ -7,7 +7,6 @@ const NavBar = () => {
   return (
     <nav className="navbar">
       <div className="logo-container">
-        {/* Al hacer click en el logo, vuelve al inicio */}
         <Link to="/">
           <img src={logo} alt="My Ritual Logo" />
         </Link>

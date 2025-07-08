@@ -17,8 +17,13 @@ const Checkout = () => {
   } = useForm();
   const [orderId, setOrderId] = useState(null);
   const watchEmail = watch("email");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (data) => {
+      if (totalCart() === 0) {
+      setErrorMessage("No puedes realizar compras con total $0. Añade productos al carrito.");
+      return;
+    }
     const order = {
       buyer: {
         name: data.name,
@@ -36,6 +41,7 @@ const Checkout = () => {
       setOrderId(docRef.id);
       clearCart();
       reset();
+      setErrorMessage("");
     } catch (error) {
       console.error("Error al enviar pedido:", error);
     }
@@ -54,11 +60,23 @@ const Checkout = () => {
         </div>
       ) : (
         <>
+          {errorMessage && <p className="error-msg">{errorMessage}</p>}
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label>Nombre:</label>
               <input
-                {...register("name", { required: "Este campo es obligatorio" })}
+                 placeholder="Ingresa tu nombre"
+                 {...register("name", {
+                  required: "Este campo es obligatorio",
+                  minLength: {
+                    value: 2,
+                    message: "Debe tener al menos 2 caracteres",
+                  },
+                  pattern: {
+                    value: /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/g,
+                    message: "Solo se permiten letras",
+                  },
+                })}
               />
               {errors.name && <span>{errors.name.message}</span>}
             </div>
@@ -66,8 +84,17 @@ const Checkout = () => {
             <div>
               <label>Apellido:</label>
               <input
+              placeholder="Ingresa tu apellido"
                 {...register("lastName", {
                   required: "Este campo es obligatorio",
+                  minLength: {
+                    value: 2,
+                    message: "Debe tener al menos 2 caracteres",
+                  },
+                  pattern: {
+                    value: /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+$/g,
+                    message: "Solo se permiten letras",
+                  },
                 })}
               />
               {errors.lastName && <span>{errors.lastName.message}</span>}
@@ -76,8 +103,13 @@ const Checkout = () => {
             <div>
               <label>Dirección:</label>
               <input
+                placeholder="Ingresa tu dirección"
                 {...register("address", {
                   required: "Este campo es obligatorio",
+                  minLength: {
+                    value: 2,
+                    message: "Debe tener al menos 2 caracteres",
+                  },
                 })}
               />
               {errors.address && <span>{errors.address.message}</span>}
@@ -86,6 +118,7 @@ const Checkout = () => {
             <div>
               <label>Email:</label>
               <input
+                placeholder="Ingresa tu email"
                 type="email"
                 {...register("email", {
                   required: "Este campo es obligatorio",
@@ -97,6 +130,7 @@ const Checkout = () => {
             <div>
               <label>Confirmar Email:</label>
               <input
+                placeholder="Confirma tu email"
                 type="email"
                 {...register("confirmEmail", {
                   required: "Este campo es obligatorio",
