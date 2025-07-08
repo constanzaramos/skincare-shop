@@ -18,7 +18,7 @@ MyRitual es un ecommerce de cosmética natural y cuidado personal.
 
 ---
 ### 🎥 **GIF de funcionamiento**
-
+![Demo](./public/gif.gif)
 
 ---
 ## 💻 **Instrucciones de instalación**
