@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './errorPage.scss'
+import './errorpage.scss'
 const ErrorPage = () => {
   return (
     <div className="error-page">
