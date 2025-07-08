@@ -1,12 +1,47 @@
-# React + Vite
+# 🌿 MyRitual Skincare Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MyRitual es un ecommerce de cosmética natural y cuidado personal.
 
-Currently, two official plugins are available:
+---
+## ✨ **Descripción del proyecto**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Ecommerce de skincare y cuidado personal.
+- Desarrollado con React JS y SCSS Modules.
+- Conexión a Firebase Firestore para base de datos y pedidos.
+- Checkout con validación de datos usando React Hook Form.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 **Deploy en Vercel**
+
+🔗 [Ver sitio en Vercel](https://skincare-shop.vercel.app)
+
+---
+### 🎥 **GIF de funcionamiento**
+
+
+---
+## 💻 **Instrucciones de instalación**
+
+1. **Clona este repositorio**
+   git clone
+2. **Instala las dependencias**
+   npm install
+3. **Inicia en el servidor**
+   npm run dev y abre http://localhost:5173 en tu navegador.
+  --- 
+## 📚 **Librerías utilizadas**
+- React – Librería principal para UI.
+
+- React Router Dom – Navegación entre vistas.
+
+- React Hook Form – Validación y manejo de formularios.
+
+- Firebase Firestore – Base de datos NoSQL en la nube.
+- Sass (SCSS) – Preprocesador CSS para estilos organizados.
+
+- React Icons – Íconos vectoriales para UI.
+---
+##👩‍💻 **Desarrollado por Constanza Ramos**
+
+
