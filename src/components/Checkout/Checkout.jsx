@@ -1,13 +1,20 @@
-import React from 'react'
+import React from "react";
 import { dataBase } from "../../service/firebase";
-import { CartContext } from '../../context/CartContext';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { useContext, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { CartContext } from "../../context/CartContext";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
+import "./checkout.scss";
 
 const Checkout = () => {
   const { cart, totalCart, clearCart } = useContext(CartContext);
-  const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    reset,
+  } = useForm();
   const [orderId, setOrderId] = useState(null);
   const watchEmail = watch("email");
 
@@ -27,8 +34,8 @@ const Checkout = () => {
     try {
       const docRef = await addDoc(collection(dataBase, "orders"), order);
       setOrderId(docRef.id);
-      clearCart(); 
-      reset(); 
+      clearCart();
+      reset();
     } catch (error) {
       console.error("Error al enviar pedido:", error);
     }
@@ -41,32 +48,49 @@ const Checkout = () => {
       {orderId ? (
         <div className="order-confirmation">
           <h3>✅ ¡Gracias por tu compra!</h3>
-          <p>Tu ID de pedido es: <strong>{orderId}</strong></p>
+          <p>
+            Tu ID de pedido es: <strong>{orderId}</strong>
+          </p>
         </div>
       ) : (
         <>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label>Nombre:</label>
-              <input {...register("name", { required: "Este campo es obligatorio" })} />
+              <input
+                {...register("name", { required: "Este campo es obligatorio" })}
+              />
               {errors.name && <span>{errors.name.message}</span>}
             </div>
 
             <div>
               <label>Apellido:</label>
-              <input {...register("lastName", { required: "Este campo es obligatorio" })} />
+              <input
+                {...register("lastName", {
+                  required: "Este campo es obligatorio",
+                })}
+              />
               {errors.lastName && <span>{errors.lastName.message}</span>}
             </div>
 
             <div>
               <label>Dirección:</label>
-              <input {...register("address", { required: "Este campo es obligatorio" })} />
+              <input
+                {...register("address", {
+                  required: "Este campo es obligatorio",
+                })}
+              />
               {errors.address && <span>{errors.address.message}</span>}
             </div>
 
             <div>
               <label>Email:</label>
-              <input type="email" {...register("email", { required: "Este campo es obligatorio" })} />
+              <input
+                type="email"
+                {...register("email", {
+                  required: "Este campo es obligatorio",
+                })}
+              />
               {errors.email && <span>{errors.email.message}</span>}
             </div>
 
@@ -76,22 +100,32 @@ const Checkout = () => {
                 type="email"
                 {...register("confirmEmail", {
                   required: "Este campo es obligatorio",
-                  validate: value => value === watchEmail || "Los correos no coinciden",
+                  validate: (value) =>
+                    value === watchEmail || "Los correos no coinciden",
                 })}
               />
-              {errors.confirmEmail && <span>{errors.confirmEmail.message}</span>}
+              {errors.confirmEmail && (
+                <span>{errors.confirmEmail.message}</span>
+              )}
             </div>
 
             <h3>Resumen de la compra</h3>
-            <ul>
-              {cart.map(item => (
-                <li key={item.id}>
-                  {item.name} x {item.quantity} - ${item.price.toLocaleString("es-CL")}
-                </li>
+            <div className="checkout-summary">
+              {cart.map((item) => (
+                <div key={item.id} className="summary-item">
+                  <span className="item-name">
+                    {item.name} x {item.quantity}
+                  </span>
+                  <span className="item-price">
+                    ${(item.price * item.quantity).toLocaleString("es-CL")}
+                  </span>
+                </div>
               ))}
-            </ul>
-            <p><strong>Total: ${totalCart().toLocaleString("es-CL")}</strong></p>
-
+              <div className="summary-total">
+                <span>Total:</span>
+                <span>${totalCart().toLocaleString("es-CL")}</span>
+              </div>
+            </div>
             <button type="submit">Enviar pedido</button>
           </form>
         </>

@@ -16,6 +16,7 @@ const ItemDetail = ({ product }) => {
     addItem(product, quantity);
     setAddedToCart(true);
   };
+console.log(product);
 
   return (
     <div className="item-detail">
@@ -29,8 +30,8 @@ const ItemDetail = ({ product }) => {
         <p className="stock">Stock disponible: {stock}</p>
         {addedToCart ? (
           <div className="added-buttons">
-            <button onClick={() => navigate("/cart")}> Ir al carrito</button>
-            <button onClick={() => navigate("/")}>Seguir comprando</button>
+            <button className="btn-carrito" onClick={() => navigate("/cart")}> Ir al carrito</button>
+            <button className="btn-seguir-comprando" onClick={() => navigate("/")}>Seguir comprando</button>
           </div>
         ) : (
           <>

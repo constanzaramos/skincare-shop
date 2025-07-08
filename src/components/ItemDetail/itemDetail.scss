@@ -1,3 +1,4 @@
+@import '../../variables.scss';
 .item-detail {
   display: flex;
   flex-direction: column;
@@ -58,7 +59,7 @@
     }
 
     .btn-add-to-cart {
-      background-color: #76C294;
+      background-color: $primary-color ;
       color: white;
       font-weight: bold;
       border: none;
@@ -68,8 +69,47 @@
       transition: background-color 0.2s ease;
 
       &:hover {
-        background-color: #55827D;
+        background-color:#EFD865;
       }
     }
   }
 }
+
+.added-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+
+  .btn-carrito,
+  .btn-seguir-comprando {
+    margin-top: auto;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-carrito {
+    background-color: #45503F; 
+    color: white;
+
+    &:hover {
+      background-color: darken(#EFD865, 10%); 
+    }
+  }
+
+  .btn-seguir-comprando {
+    background-color: darken(#EFD865, 10%); 
+    color:#45503F;
+
+    &:hover {
+      background-color:#45503F;
+      color: white;
+    }
+  }
+}
+
+
+

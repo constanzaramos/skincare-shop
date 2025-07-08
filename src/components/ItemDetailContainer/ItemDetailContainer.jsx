@@ -4,6 +4,8 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import Loading from "../Loading/Loading";
 import { collection, doc, getDoc } from "firebase/firestore";
 import { dataBase } from "../../service/firebase";
+import "./itemDetailContainer.scss";
+import { Link } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -28,7 +30,16 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   if (loading) return <Loading />;
-  if (invalid) return <p>Producto no encontrado</p>;
+  if (invalid)
+    return (
+      <div className="not-found">
+        <h2>Producto no encontrado</h2>
+        <p>El producto que buscas no existe o fue removido.</p>
+        <Link to="/" className="btn btn-primary">
+          Volver al catálogo
+        </Link>
+      </div>
+    );
 
   return (
     <div className="item-detail-container">

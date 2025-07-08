@@ -9,9 +9,11 @@
   background-color: $primary-color;
   color: $secondary-color;
   cursor: pointer;
-  border: none;
-  outline: none;
-
+  border: $primary-color;
+  &:focus {
+    outline: none; 
+    box-shadow: none; 
+  }
 .cart-icon{
     width: 30px;
     height: 30px;
@@ -37,5 +39,30 @@
     line-height: 1;
     min-width: 18px;
     text-align: center;
+  }
+}
+
+.cart-widget-container {
+  position: relative;
+
+  .cart-tooltip {
+    position: absolute;
+    top: 10px;
+    right: 100px;
+    background-color: $secondary-color;
+    color: $primary-color;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    opacity: 0.95;
+    z-index: 10;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 0.95; transform: translateY(0); }
   }
 }
