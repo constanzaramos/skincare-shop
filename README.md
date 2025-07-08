@@ -42,6 +42,6 @@ MyRitual es un ecommerce de cosmética natural y cuidado personal.
 
 - React Icons – Íconos vectoriales para UI.
 ---
-##👩‍💻 **Desarrollado por Constanza Ramos**
+## 👩‍💻 **Desarrollado por Constanza Ramos**
 
 
